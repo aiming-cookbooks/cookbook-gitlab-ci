@@ -4,7 +4,7 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: gitlabhq_production
+  database: gitlab_ci_production
   pool: 5
   username: <%= @user %>
   password: <%= @password %>
@@ -18,7 +18,7 @@ production:
 development:
   adapter: postgresql
   encoding: unicode
-  database: gitlabhq_development
+  database: gitlab_ci_development
   pool: 5
   username: <%= @user %>
   password: <%= @password %>
@@ -30,7 +30,7 @@ development:
 staging:
   adapter: postgresql
   encoding: unicode
-  database: gitlabhq_staging
+  database: gitlab_ci_staging
   pool: 5
   username: <%= @user %>
   password: <%= @password %>
@@ -42,7 +42,7 @@ staging:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: gitlabhq_test
+  database: gitlab_ci_test
   pool: 5
   username: <%= @user %>
   password: <%= @password %>

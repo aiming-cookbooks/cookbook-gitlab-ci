@@ -1,10 +1,10 @@
 #
-# Cookbook Name:: gitlab
+# Cookbook Name:: gitlab_ci
 # Recipe:: database_mysql
 #
 
 mysql = node['mysql']
-gitlab = node['gitlab']
+gitlab_ci = node['gitlab_ci']
 
 # 5.Database
 include_recipe "mysql::server"
@@ -16,23 +16,23 @@ mysql_connexion = {
   :password => mysql['server_root_password']
 }
 
-## Create a user for GitLab.
-mysql_database_user gitlab['user'] do
+## Create a user for GitLab CI.
+mysql_database_user gitlab_ci['user'] do
   connection mysql_connexion
-  password gitlab['database_password']
+  password gitlab_ci['database_password']
   action :create
 end
 
-## Create the GitLab database & grant all privileges on database
-mysql_database "gitlabhq_#{gitlab['env']}" do
+## Create the GitLab CI database & grant all privileges on database
+mysql_database "gitlab_ci_#{gitlab_ci['env']}" do
   connection mysql_connexion
   action :create
 end
 
-mysql_database_user gitlab['user'] do
+mysql_database_user gitlab_ci['user'] do
   connection mysql_connexion
-  password gitlab['database_password']
-  database_name "gitlabhq_#{gitlab['env']}"
+  password gitlab_ci['database_password']
+  database_name "gitlab_ci_#{gitlab_ci['env']}"
   host 'localhost'
   privileges [:select, :update, :insert, :delete, :create, :drop, :index, :alter]
   action :grant

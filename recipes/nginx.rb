@@ -1,9 +1,9 @@
 #
-# Cookbook Name:: gitlab
+# Cookbook Name:: gitlab_ci
 # Recipe:: nginx
 #
 
-gitlab = node['gitlab']
+gitlab_ci = node['gitlab_ci']
 
 # 7. Nginx
 ## Installation
@@ -12,24 +12,24 @@ package "nginx" do
 end
 
 ## Site Configuration
-path = platform_family?("rhel") ? "/etc/nginx/conf.d/gitlab.conf" : "/etc/nginx/sites-available/gitlab"
+path = platform_family?("rhel") ? "/etc/nginx/conf.d/gitlab_ci.conf" : "/etc/nginx/sites-available/gitlab_ci"
 template path do
   source "nginx.erb"
   mode 0644
   variables({
-    :path => gitlab['path'],
-    :host => gitlab['host'],
-    :port => gitlab['port']
+    :path => gitlab_ci['path'],
+    :host => gitlab_ci['host'],
+    :port => gitlab_ci['port']
   })
 end
 
 if platform_family?("rhel")
-  directory gitlab['home'] do
+  directory gitlab_ci['home'] do
     mode 0755
   end
 else
-  link "/etc/nginx/sites-enabled/gitlab" do
-    to "/etc/nginx/sites-available/gitlab"
+  link "/etc/nginx/sites-enabled/gitlab_ci" do
+    to "/etc/nginx/sites-available/gitlab_ci"
   end
 
   file "/etc/nginx/sites-enabled/default" do

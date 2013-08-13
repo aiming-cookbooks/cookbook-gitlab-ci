@@ -1,22 +1,22 @@
 #
-# Cookbook Name:: gitlab
+# Cookbook Name:: gitlab_ci
 # Recipe:: update
 #
 
-gitlab = node['gitlab']
+gitlab_ci = node['gitlab_ci']
 
-service "gitlab" do
+service "gitlab_ci" do
   action :stop
 end
 
-file File.join(gitlab['home'], ".gitlab_start") do
+file File.join(gitlab_ci['home'], ".gitlab_ci_start") do
   action :delete
 end
 
-file File.join(gitlab['home'], ".gemrc") do
+file File.join(gitlab_ci['home'], ".gemrc") do
   action :delete
 end
 
-file File.join(gitlab['home'], ".gitlab_migrate") do
+file File.join(gitlab_ci['home'], ".gitlab_ci_migrate") do
   action :delete
 end

@@ -1,11 +1,10 @@
 #
-# Cookbook Name:: gitlab
+# Cookbook Name:: gitlab-ci
 # Recipe:: install
 #
 
-gitlab = node['gitlab']
+gitlab_ci = node['gitlab_ci']
 
-include_recipe "gitlab::gitlab_shell"
-include_recipe "gitlab::database_#{gitlab['database_adapter']}"
-include_recipe "gitlab::gitlab"
-include_recipe "gitlab::nginx"
+include_recipe "gitlab-ci::database_#{gitlab_ci['database_adapter']}"
+include_recipe "gitlab-ci::gitlab-ci"
+include_recipe "gitlab-ci::nginx"

@@ -1,10 +1,10 @@
 #
-# Cookbook Name:: gitlab
+# Cookbook Name:: gitlab-ci
 # Recipe:: database_postgresql
 #
 
 postgresql = node['postgresql']
-gitlab = node['gitlab']
+gitlab_ci = node['gitlab_ci']
 
 # 5.Database
 include_recipe "postgresql::server"
@@ -16,22 +16,22 @@ postgresql_connexion = {
   :password => postgresql['password']['postgres']
 }
 
-## Create a user for GitLab.
-postgresql_database_user gitlab['user'] do
+## Create a user for GitLab CI.
+postgresql_database_user gitlab_ci['user'] do
   connection postgresql_connexion
-  password gitlab['database_password']
+  password gitlab_ci['database_password']
   action :create
 end
 
-## Create the GitLab database & grant all privileges on database
-postgresql_database "gitlabhq_#{gitlab['env']}" do
+## Create the GitLab CI database & grant all privileges on database
+postgresql_database "gitlab_ci_#{gitlab_ci['env']}" do
   connection postgresql_connexion
   action :create
 end
 
-postgresql_database_user gitlab['user'] do
+postgresql_database_user gitlab_ci['user'] do
   connection postgresql_connexion
-  database_name "gitlabhq_#{gitlab['env']}"
-  password gitlab['database_password']
+  database_name "gitlab_ci_#{gitlab_ci['env']}"
+  password gitlab_ci['database_password']
   action :grant
 end
