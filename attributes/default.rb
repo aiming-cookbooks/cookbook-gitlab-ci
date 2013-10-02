@@ -13,7 +13,7 @@ else
 end
 
 default['gitlab_ci']['packages'] = packages
-default['gitlab_ci']['ruby'] = "1.9.3-p392"
+default['gitlab_ci']['ruby'] = "2.0.0"
 
 # User
 default['gitlab_ci']['user'] = "gitlab_ci"
@@ -22,7 +22,7 @@ default['gitlab_ci']['home'] = "/home/gitlab_ci"
 
 # GitLab CI
 default['gitlab_ci']['repository'] = "git://github.com/gitlabhq/gitlab-ci.git"
-default['gitlab_ci']['revision'] = "v3.1.0"
+default['gitlab_ci']['revision'] = "v3.2.0"
 default['gitlab_ci']['path'] = "/home/gitlab_ci/gitlab_ci"
 
 # GitLab CI config
