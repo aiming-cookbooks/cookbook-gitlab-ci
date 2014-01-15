@@ -5,12 +5,12 @@ Chef to install The GitLab.
 
 * GitLab: 5.4.0
 * GitLab Shell: 1.5.0
-* Ruby: 1.9.3
-* Redis: 2.6.13
+* Ruby: 2.0.0-p353
+* Redis: 2.8.4
 * Git: 1.7.12
-* Nginx: 1.1.19
+* Nginx: 1.4.4
 * PostgreSQL: 9.1.9
-* MySQL: 5.5.31
+* MySQL: 5.5.35(centos)
 
 ## Requirements
 
