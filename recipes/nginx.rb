@@ -5,11 +5,13 @@
 
 gitlab_ci = node['gitlab_ci']
 
+include_recipe "nginx"
+
 # 7. Nginx
 ## Installation
-package "nginx" do 
-  action :install
-end
+#package "nginx" do 
+#  action :install
+#end
 
 ## Site Configuration
 path = platform_family?("rhel") ? "/etc/nginx/conf.d/gitlab_ci.conf" : "/etc/nginx/sites-available/gitlab_ci"

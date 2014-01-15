@@ -7,6 +7,8 @@ mysql = node['mysql']
 gitlab_ci = node['gitlab_ci']
 
 # 5.Database
+include_recipe "yum-remi" if platform?("centos")
+include_recipe "mysql::client"
 include_recipe "mysql::server"
 include_recipe "database::mysql"
 

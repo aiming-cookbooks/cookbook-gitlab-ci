@@ -7,6 +7,7 @@ postgresql = node['postgresql']
 gitlab_ci = node['gitlab_ci']
 
 # 5.Database
+include_recipe "yum-remi" if platform?("centos")
 include_recipe "postgresql::server"
 include_recipe "database::postgresql"
 

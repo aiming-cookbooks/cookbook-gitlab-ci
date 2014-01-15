@@ -13,7 +13,11 @@ end
 
 # 1. Packages / Dependencies
 include_recipe "apt" if platform?("ubuntu", "debian")
-include_recipe "yum::epel" if platform?("centos")
+include_recipe "yum" if platform?("centos")
+include_recipe "yum-remi" if platform?("centos")
+
+## Setup the redis.
+include_recipe "redisio::default"
 include_recipe "redisio::install"
 include_recipe "redisio::enable"
 
@@ -21,7 +25,6 @@ include_recipe "redisio::enable"
 gitlab_ci['packages'].each do |pkg|
   package pkg
 end
-
 
 # 2. Ruby
 include_recipe "ruby_build"

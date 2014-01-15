@@ -13,7 +13,7 @@ else
 end
 
 default['gitlab_ci']['packages'] = packages
-default['gitlab_ci']['ruby'] = "2.0.0"
+default['gitlab_ci']['ruby'] = "2.0.0-p353"
 
 # User
 default['gitlab_ci']['user'] = "gitlab_ci"
@@ -33,3 +33,15 @@ default['gitlab_ci']['port'] = "80"
 # Gems
 default['gitlab_ci']['bundle_install'] = "bundle install --path=.bundle --deployment"
 default['gitlab_ci']['env'] = "production"
+
+node.default['gitlab_ci']['database_adapter'] = 'mysql'
+
+# nginx setting
+node.default['nginx']['default_site_enabled'] = false
+node.default['nginx']['version'] = '1.4.4'
+node.default['nginx']['repo_source'] = 'nginx'
+
+# redisio setting
+#
+node.default['redisio']['mirror'] = 'http://download.redis.io/releases'
+node.default['redisio']['version'] = '2.8.4'
