@@ -180,3 +180,7 @@ admin@local.host
 ## License 
 
 * MIT
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aiming-cookbooks/cookbook-gitlab-ci/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
